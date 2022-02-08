@@ -106,13 +106,7 @@ const SinglePokemon = memo(() => {
 
                   {/** MOVES */}
 
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    lg={6}
-                    style={{ border: "0px solid black" }}
-                  >
+                  <Grid item xs={12} sm={12} lg={6}>
                     <Typography
                       variant="subtitle1"
                       style={{
