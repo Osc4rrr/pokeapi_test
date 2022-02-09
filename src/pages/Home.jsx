@@ -18,13 +18,13 @@ const Home = memo(() => {
     if (filtro.length > 0 && e.target.value.trim().length > 0) {
       setPokemonListData(filtro);
     } else {
-      getDataExample();
+      getDataPokemonList();
     }
 
     setLoading(false);
   };
 
-  const getDataExample = async () => {
+  const getDataPokemonList = async () => {
     setLoading(true);
     await axios
       .get("https://pokeapi.co/api/v2/pokemon/?limit=25")
@@ -50,7 +50,7 @@ const Home = memo(() => {
   };
 
   useEffect(() => {
-    getDataExample();
+    getDataPokemonList();
   }, []);
 
   return (

@@ -18,6 +18,7 @@ import MovesList from "../components/MovesList";
 import { useNavigate } from "react-router-dom";
 import TypesList from "../components/TypesList";
 import { Box } from "@mui/system";
+import SpritesList from "../components/SpritesList";
 
 const SinglePokemon = memo(() => {
   const { id } = useParams();
@@ -52,6 +53,7 @@ const SinglePokemon = memo(() => {
 
   return (
     <>
+      {/** Loading Element */}
       {loading ? (
         <Typography
           variant="h5"
@@ -69,6 +71,10 @@ const SinglePokemon = memo(() => {
             >
               Back To List
             </Button>
+
+            {/**
+             *
+             */}
             <Card
               style={{
                 margin: "20px",
@@ -77,6 +83,8 @@ const SinglePokemon = memo(() => {
               sx={{ boxShadow: 3 }}
             >
               <CardContent>
+                {/** Pokemon Name */}
+
                 <Typography
                   variant="h4"
                   style={{
@@ -90,6 +98,7 @@ const SinglePokemon = memo(() => {
 
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={12} lg={6}>
+                    {/** Image Element */}
                     <CardMedia
                       component="img"
                       sx={{
@@ -108,14 +117,14 @@ const SinglePokemon = memo(() => {
 
                   <Grid item xs={12} sm={12} lg={6}>
                     <Typography
-                      variant="subtitle1"
+                      variant="subtitle2"
                       style={{
                         textAlign: "center",
                         margin: "10px 0px",
                         fontWeight: "lighter",
                       }}
                     >
-                      <Chip label="MOVES" color="warning" variant="outlined" />
+                      <Chip label="Moves" color="warning" variant="outlined" />
                     </Typography>
 
                     <Box
@@ -131,204 +140,92 @@ const SinglePokemon = memo(() => {
                       ))}
                     </Box>
                   </Grid>
-                </Grid>
 
-                <Divider style={{ width: "100%", margin: "50px 0px" }} />
+                  <Divider style={{ width: "100%", margin: "50px 0px" }} />
 
-                {/** ORDER - EXP - WEIGHT - HEIGHT */}
-
-                <Grid
-                  container
-                  spacing={0}
-                  style={{ textAlign: "center", margin: "20px 0px" }}
-                >
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    lg={12}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <Typography
-                      variant="subtitle1"
+                  <Grid container style={{ textAlign: "center" }}>
+                    <Grid
+                      container={true}
+                      item
+                      xs={12}
+                      md={12}
+                      lg={6}
                       style={{
-                        fontStyle: "italic",
-                        textDecoration: "underline",
+                        margin: "15px 0px",
                       }}
                     >
-                      General Information
-                    </Typography>
-                  </Grid>
-                  <Grid
-                    item
-                    xs={6}
-                    sm={6}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <Typography variant="subtitle2">{`#${id}`}</Typography>
+                      <Grid item={true} lg={12} md={12} xs={12}>
+                        <Typography
+                          variant="subtitle1"
+                          style={{
+                            fontStyle: "italic",
+                            textDecoration: "underline",
+                          }}
+                        >
+                          General Information
+                        </Typography>
+                      </Grid>
 
-                    <Chip label="ID" color="warning" />
-                  </Grid>
-                  <Grid
-                    item
-                    xs={6}
-                    sm={6}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <Typography variant="subtitle2">
-                      {base_experience}
-                    </Typography>
+                      <Grid
+                        item={true}
+                        lg={6}
+                        md={6}
+                        xs={6}
+                        style={{ margin: "15px 0px" }}
+                      >
+                        <Typography variant="subtitle2">{`#${id}`}</Typography>
 
-                    <Chip label="EXP" color="primary" />
-                  </Grid>
+                        <Chip label="Id" color="warning" />
+                      </Grid>
 
-                  <Grid
-                    item
-                    xs={6}
-                    sm={6}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <Typography variant="subtitle2">
-                      {`${weight / 10} kg`}
-                    </Typography>
+                      <Grid
+                        item={true}
+                        lg={6}
+                        md={6}
+                        xs={6}
+                        style={{ margin: "15px 0px" }}
+                      >
+                        <Typography variant="subtitle2">
+                          {`${height / 10} m`}
+                        </Typography>
 
-                    <Chip label="WEIGHT" color="success" />
-                  </Grid>
+                        <Chip label="Height" color="default" />
+                      </Grid>
 
-                  <Grid
-                    item
-                    xs={6}
-                    sm={6}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <Typography variant="subtitle2">
-                      {`${height / 10} m`}
-                    </Typography>
+                      <Grid
+                        item={true}
+                        lg={6}
+                        md={6}
+                        xs={6}
+                        style={{ margin: "15px 0px" }}
+                      >
+                        <Typography variant="subtitle2">
+                          {base_experience}
+                        </Typography>
 
-                    <Chip label="HEIGHT" color="default" />
-                  </Grid>
-                </Grid>
+                        <Chip label="Exp" color="primary" />
+                      </Grid>
 
-                <Divider style={{ width: "100%", margin: "50px 0px" }} />
+                      <Grid
+                        item={true}
+                        lg={6}
+                        md={6}
+                        xs={6}
+                        style={{ margin: "15px 0px" }}
+                      >
+                        <Typography variant="subtitle2">
+                          {`${weight / 10} kg`}
+                        </Typography>
 
-                {/** SPRITES */}
-                <Grid
-                  container
-                  style={{ textAlign: "center", margin: "20px 0px" }}
-                >
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    lg={12}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <Typography
-                      variant="subtitle1"
-                      style={{
-                        fontStyle: "italic",
-                        textDecoration: "underline",
-                      }}
-                    >
-                      Sprites
-                    </Typography>
-                  </Grid>
-                  <Grid
-                    item
-                    xs={6}
-                    sm={3}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <CardMedia
-                      component="img"
-                      style={{
-                        width: "80px",
-                        objectFit: "contain",
-                        margin: "auto",
-                        backgroundColor: "#fff",
-                        borderRadius: "50px",
-                        boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2)",
-                      }}
-                      image={sprites?.back_default}
-                      alt="img-pokemon"
-                    />
-                  </Grid>
+                        <Chip label="Weight" color="success" />
+                      </Grid>
+                    </Grid>
 
-                  <Grid
-                    item
-                    xs={6}
-                    sm={3}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <CardMedia
-                      component="img"
-                      style={{
-                        width: "80px",
-                        objectFit: "contain",
-                        margin: "auto",
-                        backgroundColor: "#fff",
-                        borderRadius: "50px",
-                        boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2)",
-                      }}
-                      image={sprites?.front_default}
-                      alt="img-pokemon"
-                    />
-                  </Grid>
-
-                  <Grid
-                    item
-                    xs={6}
-                    sm={3}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <CardMedia
-                      component="img"
-                      style={{
-                        width: "80px",
-                        objectFit: "contain",
-                        margin: "auto",
-                        backgroundColor: "#fff",
-                        borderRadius: "50px",
-                        boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2)",
-                      }}
-                      image={sprites?.back_shiny}
-                      alt="img-pokemon"
-                    />
-                  </Grid>
-
-                  <Grid
-                    item
-                    xs={6}
-                    sm={3}
-                    lg={3}
-                    style={{ margin: "15px 0px" }}
-                  >
-                    <CardMedia
-                      component="img"
-                      style={{
-                        width: "80px",
-                        objectFit: "contain",
-                        margin: "auto",
-                        backgroundColor: "#fff",
-                        borderRadius: "50px",
-                        boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2)",
-                      }}
-                      image={sprites?.front_shiny}
-                      alt="img-pokemon"
-                    />
+                    <SpritesList sprites={sprites} />
                   </Grid>
                 </Grid>
 
                 <Divider style={{ width: "100%", margin: "50px 0px" }} />
-
-                {/** Abilities */}
 
                 <Grid container>
                   <Grid
@@ -364,6 +261,7 @@ const SinglePokemon = memo(() => {
                     lg={6}
                     style={{ margin: "15px 0px" }}
                   >
+                    {/**Types */}
                     <Typography
                       variant="subtitle1"
                       style={{

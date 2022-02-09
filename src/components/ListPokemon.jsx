@@ -1,17 +1,13 @@
 import {
-  Autocomplete,
   Box,
   Button,
   Card,
   CardContent,
   CardMedia,
-  Container,
   Fade,
-  Grid,
-  TextField,
   Typography,
 } from "@mui/material";
-import { useEffect, memo } from "react";
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ListPokemon = memo(({ pokemon }) => {
@@ -58,15 +54,24 @@ const ListPokemon = memo(({ pokemon }) => {
               }}
             >
               {pokemon.types.map((type) => (
-                <Typography
-                  key={type.slot}
-                  variant="subtitle2"
-                  style={{
-                    margin: "0px 3px",
-                  }}
-                >
-                  {type.type.name}
-                </Typography>
+                <Box key={type.type.name}>
+                  <CardMedia
+                    component="img"
+                    image={`https://firebasestorage.googleapis.com/v0/b/pokeapiimages.appspot.com/o/${type.type.name}_type.png?alt=media&token=67138a31-fa96-4446-bd15-a3eb1ba6076e`}
+                    alt="img-pokemon"
+                    style={{
+                      width: "25px",
+                      objectFit: "contain",
+                      marginRight: "5px",
+                    }}
+                  ></CardMedia>
+                  <Typography
+                    variant="subtitle2"
+                    style={{ marginRight: "5px", textTransform: "capitalize" }}
+                  >
+                    {type.type.name}
+                  </Typography>
+                </Box>
               ))}
             </Box>
 

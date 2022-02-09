@@ -2,7 +2,6 @@ const TypesList = ({ type }) => {
   return (
     <span
       style={{
-        border: "0px solid black",
         display: "flex",
         justifyContent: "center",
         flexDirection: "row",
