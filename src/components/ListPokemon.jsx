@@ -20,7 +20,7 @@ const ListPokemon = memo(({ pokemon }) => {
         style={{
           display: "flex",
           width: "auto",
-          height: "280px",
+          height: "300px",
           justifyContent: "space-between",
           margin: "5px",
           backgroundColor: "rgba(192,192,192,0.2)",
@@ -46,7 +46,9 @@ const ListPokemon = memo(({ pokemon }) => {
 
             <Typography variant="subtitle2">#{pokemon.id}</Typography>
 
-            <Typography variant="subtitle2">Type(s):</Typography>
+            <Typography variant="subtitle2">
+              {pokemon.types.length > 1 ? "Types" : "Type"}
+            </Typography>
             <Box
               style={{
                 display: "flex",
@@ -55,16 +57,7 @@ const ListPokemon = memo(({ pokemon }) => {
             >
               {pokemon.types.map((type) => (
                 <Box key={type.type.name}>
-                  <CardMedia
-                    component="img"
-                    image={`https://firebasestorage.googleapis.com/v0/b/pokeapiimages.appspot.com/o/${type.type.name}_type.png?alt=media&token=67138a31-fa96-4446-bd15-a3eb1ba6076e`}
-                    alt="img-pokemon"
-                    style={{
-                      width: "25px",
-                      objectFit: "contain",
-                      marginRight: "5px",
-                    }}
-                  ></CardMedia>
+
                   <Typography
                     variant="subtitle2"
                     style={{ marginRight: "5px", textTransform: "capitalize" }}

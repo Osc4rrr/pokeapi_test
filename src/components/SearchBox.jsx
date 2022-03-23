@@ -4,7 +4,7 @@ import { memo } from "react";
 const SearchBox = memo(({ handleSearch }) => {
   return (
     <Autocomplete
-      style={{ margin: "50px 20px" }}
+      style={{ margin: "50px 0px" }}
       options={[]}
       freeSolo
       disableClearable
